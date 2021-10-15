@@ -48,6 +48,9 @@ There may well be room for performance-optimizations and improvements.
 #include <stdint.h>
 #include <assert.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 /* This macro defines the word size in bytes of the array that constitues the big-number data structure. */
 #ifndef WORD_SIZE
@@ -142,6 +145,9 @@ void bignum_pow(struct bn* a, struct bn* b, struct bn* c); /* Calculate a^b -- e
 void bignum_isqrt(struct bn* a, struct bn* b);             /* Integer square root -- e.g. isqrt(5) => 2*/
 void bignum_assign(struct bn* dst, struct bn* src);        /* Copy src into dst -- dst := src */
 
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* #ifndef __BIGNUM_H__ */
 
