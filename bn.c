@@ -120,7 +120,7 @@ int bignum_to_int(struct bn* n)
 }
 
 
-void bignum_from_string(struct bn* n, char* str, int nbytes)
+void bignum_from_string(struct bn* n, const char* str, int nbytes)
 {
   require(n, "n is null");
   require(str, "str is null");
@@ -147,7 +147,7 @@ void bignum_from_string(struct bn* n, char* str, int nbytes)
 }
 
 
-void bignum_to_string(struct bn* n, char* str, int nbytes)
+void bignum_to_string(const struct bn* n, char* str, int nbytes)
 {
   require(n, "n is null");
   require(str, "str is null");
@@ -227,7 +227,7 @@ void bignum_inc(struct bn* n)
 }
 
 
-void bignum_add(struct bn* a, struct bn* b, struct bn* c)
+void bignum_add(const struct bn* a, const struct bn* b, struct bn* c)
 {
   require(a, "a is null");
   require(b, "b is null");
@@ -245,7 +245,7 @@ void bignum_add(struct bn* a, struct bn* b, struct bn* c)
 }
 
 
-void bignum_sub(struct bn* a, struct bn* b, struct bn* c)
+void bignum_sub(const struct bn* a, const struct bn* b, struct bn* c)
 {
   require(a, "a is null");
   require(b, "b is null");
@@ -267,7 +267,7 @@ void bignum_sub(struct bn* a, struct bn* b, struct bn* c)
 }
 
 
-void bignum_mul(struct bn* a, struct bn* b, struct bn* c)
+void bignum_mul(const struct bn* a, const struct bn* b, struct bn* c)
 {
   require(a, "a is null");
   require(b, "b is null");
@@ -299,7 +299,7 @@ void bignum_mul(struct bn* a, struct bn* b, struct bn* c)
 }
 
 
-void bignum_div(struct bn* a, struct bn* b, struct bn* c)
+void bignum_div(const struct bn* a, const struct bn* b, struct bn* c)
 {
   require(a, "a is null");
   require(b, "b is null");
@@ -345,7 +345,7 @@ void bignum_div(struct bn* a, struct bn* b, struct bn* c)
 }
 
 
-void bignum_lshift(struct bn* a, struct bn* b, int nbits)
+void bignum_lshift(const struct bn* a, struct bn* b, int nbits)
 {
   require(a, "a is null");
   require(b, "b is null");
@@ -373,7 +373,7 @@ void bignum_lshift(struct bn* a, struct bn* b, int nbits)
 }
 
 
-void bignum_rshift(struct bn* a, struct bn* b, int nbits)
+void bignum_rshift(const struct bn* a, struct bn* b, int nbits)
 {
   require(a, "a is null");
   require(b, "b is null");
@@ -402,7 +402,7 @@ void bignum_rshift(struct bn* a, struct bn* b, int nbits)
 }
 
 
-void bignum_mod(struct bn* a, struct bn* b, struct bn* c)
+void bignum_mod(const struct bn* a, const struct bn* b, struct bn* c)
 {
   /*
     Take divmod and throw away div part
@@ -416,7 +416,7 @@ void bignum_mod(struct bn* a, struct bn* b, struct bn* c)
   bignum_divmod(a,b,&tmp,c);
 }
 
-void bignum_divmod(struct bn* a, struct bn* b, struct bn* c, struct bn* d)
+void bignum_divmod(const struct bn* a, const struct bn* b, struct bn* c, struct bn* d)
 {
   /*
     Puts a%b in d
@@ -444,7 +444,7 @@ void bignum_divmod(struct bn* a, struct bn* b, struct bn* c, struct bn* d)
 }
 
 
-void bignum_and(struct bn* a, struct bn* b, struct bn* c)
+void bignum_and(const struct bn* a, const struct bn* b, struct bn* c)
 {
   require(a, "a is null");
   require(b, "b is null");
@@ -458,7 +458,7 @@ void bignum_and(struct bn* a, struct bn* b, struct bn* c)
 }
 
 
-void bignum_or(struct bn* a, struct bn* b, struct bn* c)
+void bignum_or(const struct bn* a, const struct bn* b, struct bn* c)
 {
   require(a, "a is null");
   require(b, "b is null");
@@ -472,7 +472,7 @@ void bignum_or(struct bn* a, struct bn* b, struct bn* c)
 }
 
 
-void bignum_xor(struct bn* a, struct bn* b, struct bn* c)
+void bignum_xor(const struct bn* a, const struct bn* b, struct bn* c)
 {
   require(a, "a is null");
   require(b, "b is null");
@@ -486,7 +486,7 @@ void bignum_xor(struct bn* a, struct bn* b, struct bn* c)
 }
 
 
-int bignum_cmp(struct bn* a, struct bn* b)
+int bignum_cmp(const struct bn* a, const struct bn* b)
 {
   require(a, "a is null");
   require(b, "b is null");
@@ -510,7 +510,7 @@ int bignum_cmp(struct bn* a, struct bn* b)
 }
 
 
-int bignum_is_zero(struct bn* n)
+int bignum_is_zero(const struct bn* n)
 {
   require(n, "n is null");
 
@@ -527,7 +527,7 @@ int bignum_is_zero(struct bn* n)
 }
 
 
-void bignum_pow(struct bn* a, struct bn* b, struct bn* c)
+void bignum_pow(const struct bn* a, const struct bn* b, struct bn* c)
 {
   require(a, "a is null");
   require(b, "b is null");
@@ -569,7 +569,7 @@ void bignum_pow(struct bn* a, struct bn* b, struct bn* c)
   }
 }
 
-void bignum_isqrt(struct bn *a, struct bn* b)
+void bignum_isqrt(const struct bn *a, struct bn* b)
 {
   require(a, "a is null");
   require(b, "b is null");
@@ -602,7 +602,7 @@ void bignum_isqrt(struct bn *a, struct bn* b)
 }
 
 
-void bignum_assign(struct bn* dst, struct bn* src)
+void bignum_assign(struct bn* dst, const struct bn* src)
 {
   require(dst, "dst is null");
   require(src, "src is null");
@@ -686,5 +686,3 @@ static void _rshift_one_bit(struct bn* a)
   }
   a->array[BN_ARRAY_SIZE - 1] >>= 1;
 }
-
-
