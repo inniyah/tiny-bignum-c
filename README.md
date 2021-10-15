@@ -1,6 +1,10 @@
-![CI](https://github.com/kokke/tiny-bignum-c/workflows/CI/badge.svg)
 # tiny-bignum-c
 # A small multiple-precision integer implementation in C
+### Changes
+This is not the original repository. Upstream is at https://github.com/kokke/tiny-bignum-c/
+
+I have renamed some files, cleaned up some code, and added Unit Tests both in C and in Python
+
 ### Description
 Small portable [Arbitrary-precision unsigned integer arithmetic](https://en.wikipedia.org/wiki/Arbitrary-precision_arithmetic) in C, for calculating with large numbers.
 
