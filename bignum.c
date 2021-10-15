@@ -46,7 +46,8 @@ There may well be room for performance-optimizations and improvements.
 #include <stdio.h>
 #include <stdbool.h>
 #include <assert.h>
-#include "bn.h"
+
+#include "bignum.h"
 
 
 /* Functions for shifting number in-place. */
@@ -718,4 +719,4 @@ void bignum_pow_mod(const struct bn* a, const struct bn* b, const struct bn* n, 
     bignum_mod(&tmp, n, &tmpa);
   }
 }
-z
+

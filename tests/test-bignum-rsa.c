@@ -38,7 +38,7 @@
 
 #include <stdio.h>
 #include <string.h> /* for memcpy */
-#include "bn.h"
+#include "../bignum.h"
 
 /* O(log n) */
 void pow_mod_faster(struct bn* a, struct bn* b, struct bn* n, struct bn* res)
@@ -172,8 +172,8 @@ void test_rsa_2(void)
   pow_mod_faster(&C, &D, &N, &M);
   m_result = bignum_to_int(&M);
   bignum_to_string(&M, buf, sizeof(buf));
-  printf("  %d ^ %d mod %d = %s \n", c, d, n, buf);
   printf("  %d ^ %d mod %d = %d \n", c, d, n, m_result);
+  printf("  %d ^ %d mod %d = %s \n", c, d, n, buf);
 
   printf("\n");
 }
@@ -190,7 +190,7 @@ void test_rsa_3(void)
   const int n = p * q;
 //int t = (p - 1) * (q - 1);
   const int e = 17;
-  const int d = 2753;
+  const int d = 2897;
   const int m = 123;
   const int c = 14837949;
   int m_result, c_result;
@@ -225,8 +225,8 @@ void test_rsa_3(void)
   pow_mod_faster(&C, &D, &N, &M);
   m_result = bignum_to_int(&M);
   bignum_to_string(&M, buf, sizeof(buf));
-  printf("  %d ^ %d mod %d = %s \n", c, d, n, buf);
   printf("  %d ^ %d mod %d = %d \n", c, d, n, m_result);
+  printf("  %d ^ %d mod %d = %s \n", c, d, n, buf);
 
   printf("\n");
 }
