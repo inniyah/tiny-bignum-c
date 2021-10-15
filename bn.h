@@ -141,6 +141,9 @@ void bignum_pow(const struct bn* a, const struct bn* b, struct bn* c); /* Calcul
 void bignum_isqrt(const struct bn* a, struct bn* b);             /* Integer square root -- e.g. isqrt(5) => 2*/
 void bignum_assign(struct bn* dst, const struct bn* src);  /* Copy src into dst -- dst := src */
 
+/* Faster power and module sequence of operations, for RSA: O(log n) */
+void bignum_pow_mod(const struct bn* a, const struct bn* b, const struct bn* n, struct bn* res);
+
 #ifdef __cplusplus
 }
 #endif
